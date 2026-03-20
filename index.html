@@ -2,8 +2,18 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
+    <script>
+        var _hmt = _hmt || [];
+            (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?ad5a13ed4d4433fde0384f746f7e220c";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+            })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>MBTI 性格测试 | 40题专业版</title>
+    
     <style>
         * {
             margin: 0;
@@ -545,6 +555,12 @@
             const ans = userAnswers[i];
             if(ans) scores[ans]++;
         }
+
+        // 百度统计事件：记录一次测试完成
+        if (typeof _hmt !== 'undefined') {
+            _hmt.push(['_trackEvent', '测试', '完成', 'MBTI']);
+        }
+
         const eiResult = scores.E >= scores.I ? `E ${scores.E} : I ${scores.I}` : `I ${scores.I} : E ${scores.E}`;
         const snResult = scores.S >= scores.N ? `S ${scores.S} : N ${scores.N}` : `N ${scores.N} : S ${scores.S}`;
         const tfResult = scores.T >= scores.F ? `T ${scores.T} : F ${scores.F}` : `F ${scores.F} : T ${scores.T}`;
